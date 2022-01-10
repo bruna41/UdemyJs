@@ -1,0 +1,59 @@
+<h1>Árvore</h1>
+<ul class="tree">
+    <li>
+        <span wm-folder>Backend</span>
+        <ul>
+            <li>
+                <span wm-folder>App</span>
+                <ul>
+                    <li>produto.js</li>
+                    <li>usuário.js</li>
+                    <li>venda.js</li>
+                </ul>
+            </li>
+            <li>
+                <span wm-folder>Configurações</span>
+                <ul>
+                    <li>Banco.js</li>
+                    <li>Rotas.js</li>
+                    <li>Servidor.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span wm-folder>Frontend</span>
+        <ul>
+            <li>
+                <span wm-folder>Público</span>
+                <ul>
+                    <li>App.css</li>
+                    <li>App.js</li>
+                    <li>App.html</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script>
+    document.querySelectorAll('[wm-folder]').forEach(folder => {
+        folder.onclick = function(e) {
+            const ul = folder.nextElementSibling
+            const d = ul.style.display
+            ul.style.display = d === 'none' ? 'block' : 'none'
+        }
+    })
+</script>
+<style>
+    h1 {
+        background-color: aqua;
+    }
+    span {
+        color: rgb(141, 38, 38);
+    }
+    li {
+        color: chartreuse;
+        background-color: rgb(28, 134, 160);
+    }
+</style>

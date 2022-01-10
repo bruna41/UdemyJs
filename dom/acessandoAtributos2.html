@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        console.log('Elemento "ul"......................')
+        console.log('childNodes', lista.childNodes)
+        console.log('destino', lista.id)
+        console.log('destino', lista.destino) // não acessa pq é uma propriedade personalizada
+        console.log('getAttribute', lista.getAttribute('destino'))
+        console.log('hasAttribute', lista.hasAttribute('destino')) // saber se existe
+        lista.setAttribute('destino', 'empresa') //altera
+        lista.setAttribute('status', 'aberto') //adiciona
+        lista.removeAttribute('destino') //remover
+        console.log(lista.dataset) // tratamento diferenciado
+        console.log(lista.dataset.urgencia) // mostra só o valor
+        lista.dataset.urgencia = 4 // altera
+        console.log(lista.getAttribute('data-urgencia'))
+
+        // cuidado
+        const label = document.querySelector('label')
+        console.log(label.for) // não mostra, é uma palavra reservada da linguagem
+        console.log(label.htmlFor) // ok
+        console.log(label.getAttribute('for'))
+        console.log(label.getAttribute('htmlFor')) // não mostra
+    </script>
+</body>
+
+</html>

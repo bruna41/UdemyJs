@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios.HTML</title>
+    <style>
+        h1 {
+            color: rgb(197, 21, 21);
+        }
+        h4 {
+            color: rgb(255, 238, 0);
+            background-color: black;
+        }
+        #conteudo {
+            padding: 30px 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Testes HTML</h1>
+    </header>
+    <nav>
+        <a href="exercicios/teste0.html">00 - Teste</a> |
+        <a href="exercicios/teste1_1.html">01 - Teste</a> |
+        <a href="exercicios/tagsParaTexto.html">TesteDeTexto</a> |
+        <a href="exercicios/tagsParaTexto2.html">TesteDeTexto2</a> |
+        <a href="exercicios/listas.html">Listas</a> |
+        <a href="exercicios/desafioListaAninhada.html">Árvore</a> |
+        <a href="exercicios/links.html">Links</a> |
+        <a href="exercicios/tabela.html">Tabelas</a> |
+        <a href="exercicios/form/form.html">Formulários</a> |
+        <a href="exercicios/imagens.html">Imagens/Slides</a> |
+        <a href="exercicios/videos.html">Vídeos</a> |
+        <a href="fundamentos/tagsNaoVisuais.html">Tags Não Visuais</a>
+    </nav><hr>
+    <section id="conteudo"></section>
+    <footer>
+        <h4>Curso de Web Moderno</h4>
+    </footer>
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            const conteudo = document.getElementById ('conteudo')
+            link.onclick = function(e) {
+                e.preventDefault ()
+                fetch(link.href)
+                     .then(resp => resp.text())
+                     .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+</html>
